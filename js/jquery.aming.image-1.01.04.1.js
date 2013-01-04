@@ -19,16 +19,23 @@
                 time: 800,
                 /**图片加载完后的触发的方法*/
                 loaded: {},
+                //加载完显示的过渡效果
                 effect: function (obj, p_time, p_callback) {
                     jQuery(obj).fadeIn(p_time, p_callback);
                     if (sdata.loaded && (sdata.loaded instanceof Function)) {
                         sdata.loaded();
                     }
+                },
+                //隐藏起img
+                hide: function (obj) {
+                    jQuery(obj).hide();
                 }
             }, setting);
+
             var renderTo = jQuery(this);
             var img = new Image();
-            renderTo.hide();
+
+            sdata.hide(this);
             img.src = renderTo.attr("src");
 
             if (img.complete) {
@@ -36,6 +43,7 @@
 
                 return this;
             }
+
             renderTo.bind("load", function () {
                 sdata.effect(this, sdata.time, callback);
             });
