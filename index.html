@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Demo</title>
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/jquery.aming.image-1.12.31.0.js"></script>
+</head>
+<body>
+    <img id="img1" src="images/1.jpg" />
+    <br />
+    <img id="img2" src="images/2.jpg" />
+    <br />
+    <img id="img3" src="images/3.jpg" />
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#img1").amingimage();
+            $("#img2").amingimage({ time: 5000 });
+            $("#img3").amingimage({
+                time: 8000,
+                loaded: function () {
+                    alert("img3 load end");
+                }
+            }, function () {
+                alert("img3 show end");
+            });
+        });
+    </script>
+</body>
+</html>
