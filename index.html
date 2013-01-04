@@ -5,7 +5,7 @@
     <meta charset="utf-8" />
     <title>Demo</title>
     <script type="text/javascript" src="js/jquery.js"></script>
-    <script type="text/javascript" src="js/jquery.aming.image-1.12.31.0.js"></script>
+    <script type="text/javascript" src="js/jquery.aming.image-1.01.04.1.js"></script>
 </head>
 <body>
     <img id="img1" src="images/1.jpg" />
@@ -13,10 +13,15 @@
     <img id="img2" src="images/2.jpg" />
     <br />
     <img id="img3" src="images/3.jpg" />
+    <br />
+    <img id="img4" src="images/1.jpg" />
     <script type="text/javascript">
         $(document).ready(function () {
+
             $("#img1").amingimage();
+
             $("#img2").amingimage({ time: 5000 });
+
             $("#img3").amingimage({
                 time: 8000,
                 loaded: function () {
@@ -25,6 +30,15 @@
             }, function () {
                 alert("img3 show end");
             });
+
+
+            $("#img4").amingimage({
+                time: 4000,
+                effect: function (obj, time, callback) {
+                    $(obj).slideDown(time, callback);
+                }
+            });
+
         });
     </script>
 </body>
